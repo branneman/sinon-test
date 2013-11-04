@@ -1,0 +1,16 @@
+{
+  "name": "sinon-test",
+  "version": "0.0.0",
+  "description": "Test mocking require'd modules with sinon",
+  "main": "index.js",
+  "scripts": {
+    "test": "node_modules/mocha/bin/mocha --reporter spec test.js"
+  },
+  "author": "Stuart McFarlane",
+  "license": "BSD-2-Clause",
+  "devDependencies": {
+    "sinon": "~1.7.3",
+    "mocha": "~1.14.0",
+    "chai": "~1.8.1"
+  }
+}
