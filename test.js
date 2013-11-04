@@ -6,6 +6,7 @@ describe('mock in require\'s modules', function() {
         [
             './a',
             './aa',
+            './aaa',
             './b',
             './ba'
         ].forEach(function(module){
@@ -26,8 +27,14 @@ describe('mock in require\'s modules', function() {
         a(1).should.equal('a(1)');
         spy.called.should.equal(false);
     });
-    it('directly required object\'s function can be mocked via the required object', function(){
+    it('directly required object\'s function can be mocked via the required object (module.exports = {x: fn})', function(){
         var aa = require('./aa');
+        var spy = sinon.spy(aa, 'a');
+        aa.a(1).should.equal('a(1)');
+        spy.called.should.equal(true);
+    });
+    it('directly required object\'s function can be mocked via the required object (module.exports.x = fn)', function(){
+        var aa = require('./aaa');
         var spy = sinon.spy(aa, 'a');
         aa.a(1).should.equal('a(1)');
         spy.called.should.equal(true);
